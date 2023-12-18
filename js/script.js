@@ -11,7 +11,31 @@ console.log('JS OK')
 const numberKm = parseInt(prompt('Quanti km devi percorrere?', 20))
 const userAge = parseInt(prompt('Qual è la tua età?', 39))
 
+const paragraph = document.getElementById('finalUserPrice')
+
 console.log(numberKm, userAge)
 
 const ticketPrice = numberKm*0.21
 console.log(ticketPrice)
+
+let discount = 0;
+
+
+let message = 'Il costo del tuo biglietto è '
+
+if (userAge < 18){
+    discount = ticketPrice * 20 / 100
+    console.log(discount)
+
+} else if (userAge > 65){
+    discount = ticketPrice * 40 / 100
+    console.log(discount)
+}
+
+let finalPrice = ticketPrice - discount
+console.log(finalPrice)
+
+message += Math.floor(finalPrice*100)/100 + ' euro';
+
+paragraph.innerText = message
+
